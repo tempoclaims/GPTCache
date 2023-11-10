@@ -27,7 +27,7 @@ import_openai()
 # pylint: disable=E1102
 import openai
 
-class ChatCompletion(openai.resources.ChatCompletion, BaseCacheLLM):
+class ChatCompletion(openai.resources.Chat, BaseCacheLLM):
     """Openai ChatCompletion Wrapper
 
     Example:
