@@ -27,8 +27,18 @@ import_openai()
 # pylint: disable=E1102
 import openai
 
+# if openai.__version__.startswith('1.0.'):
+#     from openai import Completion
+#     ChatCompletion = Completion
 
-class ChatCompletion(openai.ChatCompletion, BaseCacheLLM):
+# elif openai.__version__.startswith('0.'):
+#     import openai
+#     ChatCompletion = openai.ChatCompletion
+# else:
+#     raise Exception("Unsupported openai package version")
+
+
+class ChatCompletion(openai.resources.ChatCompletion, BaseCacheLLM):
     """Openai ChatCompletion Wrapper
 
     Example:
