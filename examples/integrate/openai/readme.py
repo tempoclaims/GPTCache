@@ -15,15 +15,13 @@ question = 'what‘s chatgpt'
 # OpenAI API original usage
 openai.api_key = os.getenv('OPENAI_API_KEY')
 start_time = time.time()
-response = openai.ChatCompletion.create(
-  model='gpt-3.5-turbo',
-  messages=[
-    {
-        'role': 'user',
-        'content': question
-    }
-  ],
-)
+response = openai.chat.completions.create(model='gpt-3.5-turbo',
+messages=[
+  {
+      'role': 'user',
+      'content': question
+  }
+])
 print(f'Question: {question}')
 print('Time consuming: {:.2f}s'.format(time.time() - start_time))
 print(f'Answer: {response_text(response)}\n')
@@ -44,15 +42,13 @@ cache.set_openai_key()
 question = 'what is github'
 for _ in range(2):
     start_time = time.time()
-    response = openai.ChatCompletion.create(
-      model='gpt-3.5-turbo',
-      messages=[
-        {
-            'role': 'user',
-            'content': question
-        }
-      ],
-    )
+    response = openai.chat.completions.create(model='gpt-3.5-turbo',
+    messages=[
+      {
+          'role': 'user',
+          'content': question
+      }
+    ])
     print(f'Question: {question}')
     print('Time consuming: {:.2f}s'.format(time.time() - start_time))
     print(f'Answer: {response_text(response)}\n')
@@ -87,15 +83,13 @@ questions = [
 for question in questions:
     for _ in range(2):
         start_time = time.time()
-        response = openai.ChatCompletion.create(
-            model='gpt-3.5-turbo',
-            messages=[
-                {
-                    'role': 'user',
-                    'content': question
-                }
-            ],
-        )
+        response = openai.chat.completions.create(model='gpt-3.5-turbo',
+        messages=[
+            {
+                'role': 'user',
+                'content': question
+            }
+        ])
         print(f'Question: {question}')
         print('Time consuming: {:.2f}s'.format(time.time() - start_time))
         print(f'Answer: {response_text(response)}\n')
