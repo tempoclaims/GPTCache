@@ -48,7 +48,7 @@ class OpenAI(BaseEmbedding):
 
         :return: a text embedding in shape of (dim,).
         """
-        sentence_embeddings = openai.Embedding.create(model=self.model, input=data)
+        sentence_embeddings = openai.embeddings.create(model=self.model, input=data)
         return np.array(sentence_embeddings["data"][0]["embedding"]).astype("float32")
 
     @property
